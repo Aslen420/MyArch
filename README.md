@@ -13,27 +13,27 @@
 12. echo exampleusername > /etc/hostname
 13. touch /etc/hosts
 # Edit /etc/hosts to contain the following  
-127.0.0.1  localhost
-::1        localhost
-127.0.1.1  exampleusername
+1. // 127.0.0.1  localhost
+2. // ::1        localhost
+3. // 127.0.1.1  exampleusername
 # Second part
-passwd
-pacman -S grub efibootmgr
-mkdir /boot/efi
-mount /dev/sda1 /boot/efi
-grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
-grub-mkconfig -o /boot/grub/grub.cfg\
+1. passwd
+2. pacman -S grub efibootmgr
+3. mkdir /boot/efi
+4. mount /dev/sda1 /boot/efi
+5. grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
+6. grub-mkconfig -o /boot/grub/grub.cfg\
 # { Now for the desktop Environment ! }
-useradd -m aslen
-passwd aslen
-pacman -S sudo nano
-EDITOR=nano visudo
-{ under root ALL=(ALL) ALL || (or similar) put this next line }
-aslen ALL=(ALL) ALL
+1. useradd -m aslen
+2. passwd aslen
+3. pacman -S sudo nano
+4. EDITOR=nano visudo
+ { under root ALL=(ALL) ALL || (or similar) put this next line }
+5. aslen ALL=(ALL) ALL
 #{ / KDE / }
-pacman -S xorg plasma plasma-wayland-session kde-applications 
-systemctl enable sddm.service
-systemctl enable NetworkManager.service
+1. pacman -S xorg plasma plasma-wayland-session kde-applications 
+2. systemctl enable sddm.service
+3. systemctl enable NetworkManager.service
 
 
 # {Now Reboot!}
