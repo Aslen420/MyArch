@@ -1,3 +1,4 @@
+# Beginning
 1. fdisk /dev/sda     (SDA1 with 1gb // sda2 with the rest of drive)
 2. mkfs.fat -F32 /dev/sda1
 3. mkfs.ext4 /dev/sda2
@@ -35,4 +36,4 @@ systemctl enable sddm.service
 systemctl enable NetworkManager.service
 
 
-{Now Reboot!}
+# {Now Reboot!}
