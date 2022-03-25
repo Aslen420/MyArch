@@ -22,7 +22,7 @@
 3. mkdir /boot/efi
 4. mount /dev/sda1 /boot/efi
 5. grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
-6. grub-mkconfig -o /boot/grub/grub.cfg\
+6. grub-mkconfig -o /boot/grub/grub.cfg
 # { Now for the desktop Environment ! }
 1. useradd -m aslen
 2. passwd aslen
