@@ -13,19 +13,19 @@ cat << EOF | arch-chroot /mnt
   echo "127.0.0.1     localhost" > ~/.test.txt
   echo "::1           localhost" >> ~/.test.txt
   echo "127.0.1.1     aslen-pc" >> ~/.test.txt
-  passwd
+  echo "root:test" | chpasswd -R /mnt
   pacman -S grub efibootmgr
   mkdir /boot/efi
   mount /dev/sda1 /boot/efi
   grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
   grub-mkconfig -o /boot/grub/grub.cfg
   useradd -m aslen
-  passwd aslen
-  pacman -S sudo nano
-  EDITOR=nano visudo
-  sudo pacman -S --needed xorg
-  sudo pacman -S --needed lxqt xdg-utils ttf-freefont sddm
-  sudo pacman -S --needed libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
-  systemctl enable sddm.service
-  systemctl enable NetworkManager.service
+  echo "aslen:test" | chpasswd -R /mnt
+pacman -S sudo nano
+EDITOR=nano visudo
+sudo pacman -S --needed xorg
+sudo pacman -S --needed lxqt xdg-utils ttf-freefont sddm
+sudo pacman -S --needed libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
+systemctl enable sddm.service
+systemctl enable NetworkManager.service
 EOF
