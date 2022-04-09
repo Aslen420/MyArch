@@ -23,7 +23,7 @@ useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
-sudo pacman -S --needed xorg lxqt xdg-utils ttf-freefont sddm libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
+sudo pacman -S --needed xorg lxqt xdg-utils ttf-freefont sddm libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt --noconfirm
 systemctl enable sddm.service
 systemctl enable NetworkManager.service
 EOF
