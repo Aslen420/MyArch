@@ -22,7 +22,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
-sed -i '80i New Line with sed' /etc/sudoers
+sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
 yes | sudo pacman -S --needed xorg
 yes | sudo pacman -S --needed lxqt xdg-utils ttf-freefont sddm
 yes | sudo pacman -S --needed libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
