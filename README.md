@@ -30,10 +30,14 @@
 4. EDITOR=nano visudo
  { under root ALL=(ALL) ALL || (or similar) put this next line }
 5. aslen ALL=(ALL) ALL
-#{ / KDE / }
+# { / KDE / }
 1. pacman -S xorg plasma plasma-wayland-session kde-applications 
 2. systemctl enable sddm.service
 3. systemctl enable NetworkManager.service
-
-
+# { LXQT }
+1. sudo pacman -S --needed xorg
+2. sudo pacman -S --needed lxqt xdg-utils ttf-freefont sddm
+3. sudo pacman -S --needed libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
+4. systemctl enable sddm.service
+5. systemctl enable NetworkManager.service
 # {Now Reboot!}
