@@ -22,10 +22,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
-EDITOR=nano visudo
+EOF
+sudo nano /etc/sudoers
 yes | sudo pacman -S --needed xorg
 yes | sudo pacman -S --needed lxqt xdg-utils ttf-freefont sddm
 yes | sudo pacman -S --needed libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
 yes | systemctl enable sddm.service
 yes | systemctl enable NetworkManager.service
-EOF
