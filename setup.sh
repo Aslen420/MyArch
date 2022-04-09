@@ -10,9 +10,9 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 export LANG=en_US.UTF-8
 echo aslen-pc > /etc/hostname
 touch /etc/hosts
-echo "127.0.0.1     localhost" > ~/.test.txt
-echo "::1           localhost" >> ~/.test.txt
-echo "127.0.1.1     aslen-pc" >> ~/.test.txt
+echo "127.0.0.1     localhost" > /etc/hosts
+echo "::1           localhost" >> /etc/hosts
+echo "127.0.1.1     aslen-pc" >> /etc/hosts
 echo -e "test\ntest" | passwd root
 yes | pacman -S grub efibootmgr
 mkdir /boot/efi
