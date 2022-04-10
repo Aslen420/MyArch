@@ -8,6 +8,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat << EOF | arch-chroot /mnt
 timedatectl set-timezone Canada/Central
 locale-gen
+sleep 2
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 export LANG=en_US.UTF-8
 echo aslen-pc > /etc/hostname
@@ -27,5 +28,7 @@ yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
 pacman -S xorg plasma plasma-wayland-session kde-applications --noconfirm
 systemctl enable sddm.service
+sleep 2
 systemctl enable NetworkManager.service
+sleep 2
 EOF
