@@ -1,5 +1,5 @@
-echo -e "o\nn\np\n1\n\n\nw" | fdisk /dev/sda
-echo -e "o\nn\np\n2\n\n\nw" | fdisk /dev/sda
+echo -e "n\np\n1\n\n+1G\nw" | fdisk /dev/sda
+echo -e "n\np\n2\n\n\nw" | fdisk /dev/sda
 mkfs.fat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 mount /dev/sda2 /mnt
