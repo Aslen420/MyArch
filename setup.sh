@@ -26,8 +26,7 @@ useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
-pacman -S --noconfirm plasma plasma-wayland-session kde-applications 
+pacman -S xorg plasma plasma-wayland-session kde-applications --noconfirm
 systemctl enable sddm.service
 systemctl enable NetworkManager.service
 EOF
-
