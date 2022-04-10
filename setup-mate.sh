@@ -32,6 +32,7 @@ pacman -S --noconfirm xorg xorg-server
 pacman -S --noconfirm mate mate-extra
 pacman -S --noconfirm lightdm
 pacman -S --noconfirm lightdm-gtk-greeter
+pacman -S --noconfirm networkmanager
 systemctl enable lightdm
 systemctl enable NetworkManager.service
 EOF
