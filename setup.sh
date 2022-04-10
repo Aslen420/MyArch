@@ -9,7 +9,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat << EOF | arch-chroot /mnt
 timedatectl set-timezone Canada/Central
 locale-gen
-sleep 2
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 export LANG=en_US.UTF-8
 echo aslen-pc > /etc/hostname
