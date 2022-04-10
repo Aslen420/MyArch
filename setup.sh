@@ -27,7 +27,7 @@ useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
-sudo pacman -S --noconfirm --needed xorg lxqt xdg-utils ttf-freefont sddm libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt 
+pacman -S plasma plasma-wayland-session kde-applications
 systemctl enable sddm.service
 systemctl enable NetworkManager.service
 EOF
