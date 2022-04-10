@@ -27,23 +27,8 @@ useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
+sudo pacman -S --noconfirm --needed xorg lxqt xdg-utils ttf-freefont sddm libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt 
+systemctl enable sddm.service
+systemctl enable NetworkManager.service
 EOF
-echo 'Which of the following would you like to install: KDE, lxqt'
-read $1
-if [[ "$1" == "KDE" ]]; then
-    pacman -S xorg plasma plasma-wayland-session kde-applications --noconfirm
-    systemctl enable sddm.service
-    sleep 2
-    systemctl enable NetworkManager.service
-    sleep 2
-if [[ "$1" == "lxqt" ]]; then
-    sudo pacman -S --noconfirm --needed xorg lxqt xdg-utils ttf-freefont sddm libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt 
-    systemctl enable sddm.service
-    systemctl enable NetworkManager.service
-else
-    echo 'Incorrect Usage. Installing lxqt'
-    sudo pacman -S --noconfirm --needed xorg lxqt xdg-utils ttf-freefont sddm libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt 
-    systemctl enable sddm.service
-    systemctl enable NetworkManager.service
-fi
-fi
+
