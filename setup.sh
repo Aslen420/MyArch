@@ -1,3 +1,4 @@
+echo -e "d\nd\nd\nd\n\n\nw" | fdisk /dev/sda
 echo -e "n\np\n1\n\n+1G\nw" | fdisk /dev/sda
 echo -e "n\np\n2\n\n\nw" | fdisk /dev/sda
 mkfs.fat -F32 /dev/sda1
@@ -34,7 +35,7 @@ if [[ "$1" == "KDE" ]]; then
     sleep 2
     systemctl enable NetworkManager.service
     sleep 2
-elif [[ "$1" == "lxqt" ]]; then
+if [[ "$1" == "lxqt" ]]; then
     sudo pacman -S --needed xorg
     sudo pacman -S --needed lxqt xdg-utils ttf-freefont sddm
     sudo pacman -S --needed libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
@@ -47,5 +48,6 @@ else
     sudo pacman -S --needed libpulse libstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt
     systemctl enable sddm.service
     systemctl enable NetworkManager.service
+fi
 fi
 EOF
