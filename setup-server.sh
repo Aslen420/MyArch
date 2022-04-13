@@ -27,7 +27,7 @@ useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
-pacman -S xorg-xinit xorg git base-devel
+pacman -S --noconfirm xorg-xinit xorg git base-devel
 cd /usr/src
 git clone git://git.suckless.org/dwm
 git clone git://git.suckless.org/st
