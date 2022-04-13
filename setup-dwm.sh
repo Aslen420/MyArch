@@ -31,7 +31,7 @@ cd /usr/src
 git clone git://git.suckless.org/dwm
 git clone git://git.suckless.org/st
 git clone git://git.suckless.org/dmenu
-systemctl enable networkmanager
+systemctl enable networkmanager.service
 cd dwm
 make clean install
 cd ..
