@@ -4,7 +4,6 @@ echo -e "n\np\n2\n\n\nw" | fdisk /dev/vda
 mkfs.fat -F32 /dev/vda1
 mkfs.ext4 /dev/vda2
 mount /dev/vda2 /mnt
-reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 pacstrap /mnt base linux linux-firmware nano neofetch
 genfstab -U /mnt >> /mnt/etc/fstab
 cat << EOF | arch-chroot /mnt
@@ -38,5 +37,6 @@ cd st
 make clean install
 cd dmenu
 make clean install
+pacman -Syy
 echo 'Login as a user, then type 'nano ~/.xinitrc' and add "exec dwm" to it'
 EOF
