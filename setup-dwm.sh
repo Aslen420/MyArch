@@ -33,10 +33,13 @@ git clone git://git.suckless.org/st
 git clone git://git.suckless.org/dmenu
 cd dwm
 make clean install
+cd ..
 cd st
 make clean install
+cd ..
 cd dmenu
 make clean install
+cd ..
 pacman -Syy
 echo 'Login as a user, then type 'nano ~/.xinitrc' and add "exec dwm" to it'
 EOF
