@@ -1,9 +1,9 @@
-echo -e "d\nd\nd\nd\n\n\nw" | fdisk /dev/sda
-echo -e "n\np\n1\n\n+1G\nw" | fdisk /dev/sda
-echo -e "n\np\n2\n\n\nw" | fdisk /dev/sda
-mkfs.fat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
-mount /dev/sda2 /mnt
+echo -e "d\nd\nd\nd\n\n\nw" | fdisk /dev/vda
+echo -e "n\np\n1\n\n+1G\nw" | fdisk /dev/vda
+echo -e "n\np\n2\n\n\nw" | fdisk /dev/vda
+mkfs.fat -F32 /dev/vda1
+mkfs.ext4 /dev/vda2
+mount /dev/vda2 /mnt
 pacstrap /mnt base linux linux-firmware nano neofetch
 genfstab -U /mnt >> /mnt/etc/fstab
 cat << EOF | arch-chroot /mnt
@@ -19,7 +19,7 @@ echo "127.0.1.1     aslen-pc" >> /etc/hosts
 echo -e "test\ntest" | passwd root
 yes | pacman -S grub efibootmgr
 mkdir /boot/efi
-mount /dev/sda1 /boot/efi
+mount /dev/vda1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m aslen
