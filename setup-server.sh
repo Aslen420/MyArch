@@ -4,6 +4,8 @@ echo -e "n\np\n2\n\n\nw" | fdisk /dev/vda
 mkfs.fat -F32 /dev/vda1
 mkfs.ext4 /dev/vda2
 mount /dev/vda2 /mnt
+pacman -S reflector rsync curl
+reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 pacstrap /mnt base linux linux-firmware nano neofetch
 genfstab -U /mnt >> /mnt/etc/fstab
 cat << EOF | arch-chroot /mnt
@@ -26,4 +28,16 @@ useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
+pacman -S xorg-xinit xorg git base-devel
+cd /usr/src
+git clone git://git.suckless.org/dwm
+git clone git://git.suckless.org/st
+git clone git://git.suckless.org/dmenu
+cd dwm
+make clean install
+cd st
+make clean install
+cd dmenu
+make clean install
+echo 'Login as a user, then type 'nano ~/.xinitrc' and add "exec dwm" to it'
 EOF
