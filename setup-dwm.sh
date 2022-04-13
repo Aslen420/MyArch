@@ -26,11 +26,12 @@ useradd -m aslen
 echo -e "test\ntest" | passwd aslen
 yes | pacman -S sudo nano
 sed -i '80i aslen ALL=(ALL) ALL' /etc/sudoers
-pacman -S --noconfirm xorg-xinit xorg git base-devel
+pacman -S --noconfirm xorg-xinit xorg git base-devel networkmanager
 cd /usr/src
 git clone git://git.suckless.org/dwm
 git clone git://git.suckless.org/st
 git clone git://git.suckless.org/dmenu
+systemctl enable networkmanager
 cd dwm
 make clean install
 cd ..
