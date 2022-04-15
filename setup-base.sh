@@ -17,7 +17,7 @@ echo "127.0.0.1     localhost" > /etc/hosts
 echo "::1           localhost" >> /etc/hosts
 echo "127.0.1.1     aslen-pc" >> /etc/hosts
 echo -e "test\ntest" | passwd root
-yes | pacman -S grub efibootmgr
+yes | pacman -S grub efibootmgr networkmanager
 mkdir /boot/efi
 mount /dev/vda1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
