@@ -4,9 +4,9 @@ echo -e "n\np\n2\n\n\nw" | fdisk /dev/sda
 mkfs.fat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 mount /dev/sda2 /mnt
+cat << EOF | arch-chroot /mnt
 pacstrap /mnt base linux linux-firmware nano neofetch
 genfstab -U /mnt >> /mnt/etc/fstab
-cat << EOF | arch-chroot /mnt
 timedatectl set-timezone Canada/Central
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
