@@ -42,13 +42,11 @@
 5. systemctl enable NetworkManager.service
 # {Now Reboot!}
 
-// sudo pacman -S qemu virt-manager libvirt virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat ebtables libguestfs qemu-arch-extra ovmf edk2-armvirt
-// sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat
-// sudo modprobe -r kvm_intel
-// sudo modprobe kvm_intel nested=1
-// sudo systemctl enable --now libvirtd!
-// echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
-[image](https://user-images.githubusercontent.com/99992301/163045070-87421638-5d2a-4b75-a419-f6a3bb22fe3a.png)
-// sudo usermod -a -G libvirt username
-// sudo systemctl restart libvirtd
+1. // sudo pacman -S qemu virt-manager libvirt virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat ebtables libguestfs qemu-arch-extra ovmf edk2-armvirt
+2. // sudo modprobe -r kvm_intel
+3. // sudo modprobe kvm_intel nested=1
+4. // sudo systemctl enable --now libvirtd!
+5. // echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
+6. // sudo usermod -a -G libvirt username
+7. // sudo systemctl restart libvirtd
 
